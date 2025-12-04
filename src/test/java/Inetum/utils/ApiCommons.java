@@ -1,6 +1,7 @@
 package Inetum.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.javafaker.Faker;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.module.jsv.JsonSchemaValidatorSettings;
 import net.serenitybdd.core.Serenity;
@@ -64,5 +65,24 @@ public class ApiCommons {
                 .assertThat()
                 .body(JsonSchemaValidator.matchesJsonSchema(schemaStream));
 
+    }
+
+
+    public static String GenerarDataMock(String fieldName) {
+        Faker faker = new Faker();
+        switch (fieldName.toLowerCase()) {
+            case "_id":
+                return faker.number().digits(16); // Generates a 16-digit UUID-like number
+            case "nome":
+                return faker.name().fullName();
+            case "email":
+                return faker.internet().emailAddress();
+            case "password":
+                return faker.internet().password(8, 16); // Generates a password with 8-16 characters
+            case "administrador":
+                return faker.bool().bool() ? "true" : "false"; // Randomly returns "true" or "false"
+            default:
+                throw new IllegalArgumentException("Field name not recognized: " + fieldName);
+        }
     }
 }
