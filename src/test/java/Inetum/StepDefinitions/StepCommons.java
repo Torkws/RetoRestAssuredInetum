@@ -9,6 +9,8 @@ import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 
 import Inetum.questions.*;
 
@@ -39,6 +41,21 @@ public class StepCommons {
         } catch (Exception e) {
             throw new AssertionError("La validación del esquema JSON falló: " + e.getMessage(), e);
         }
+    }
+
+    @Then("^se valida que el campo (.*) de la respuesta sea (.*)$")
+    public void validarMensajeDeRespuesta(String fieldName, String expectedMessage) {
+        OnStage.theActorInTheSpotlight().should(seeThat("el mensaje de respuesta es igual a: ",
+                responseRegisterQuestions.getFieldValue(fieldName), equalTo(expectedMessage))
+        );
+
+    }
+
+    @Then("^se valida que el campo (.*) de la respuesta no sea nulo$")
+    public void validarIdDeRespuesta(String fieldName) {
+        OnStage.theActorInTheSpotlight().should(seeThat("el mensaje de respuesta es igual a: ",
+                responseRegisterQuestions.getFieldValue(fieldName), notNullValue() )
+        );;
     }
 
 }

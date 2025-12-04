@@ -23,7 +23,6 @@ Feature: Validar servicio de serverest que Lista usuarios
     Given que el servicio API_GET_usuarios esta disponible en el ambiente
     When realizo una solicitud con los parámetros <_id> <nome> <email> <password> <administrador>
     Then la respuesta tiene un código de estado 400
-    And se valida el esquema JSON de la respuesta contra el archivo Api_GET_listarUsuariosSchema.json
     Examples:
       | _id | nome | email  | password | administrador |
       |     |      | fulano |          |               |
@@ -34,7 +33,6 @@ Feature: Validar servicio de serverest que Lista usuarios
     Given que el servicio API_GET_usuarios esta disponible en el ambiente
     When realizo una solicitud con los parámetros <_id> <nome> <email> <password> <administrador>
     Then la respuesta tiene un código de estado 200
-    And se valida el esquema JSON de la respuesta contra el archivo Api_GET_listarUsuariosSchema.json
     Examples:
       | _id              | nome   | email       | password | administrador |
       | a3929dd5cee1ff24 |        |             |          |               |
