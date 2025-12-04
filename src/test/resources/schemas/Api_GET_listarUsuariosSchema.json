@@ -1,52 +1,35 @@
 {
-  "$schema" : "http://json-schema.org/draft-04/schema#" ,
-  "type" : "object" ,
-  "properties" : {
-    "quantidade" : {
-      "type" : "integer"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "quantidade": {
+      "type": "integer"
     },
-    "usuarios" : {
-      "tipo" : "matriz" ,
-      "elementos" : {
-        "tipo" : "objeto" ,
-        "propiedades" : {
-          "nombre" : {
-            "tipo" : "cadena"
+    "usuarios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
           },
-          "correo electrónico" : {
-            "tipo" : "cadena"
+          "administrador": {
+            "type": "string",
+            "enum": ["true", "false"]
           },
-          "contraseña" : {
-            "tipo" : "cadena" ,
-            "enumeración" : [
-              "prueba" ,
-              "123456" ,
-              "caio321"
-            ]
+          "nome": {
+            "type": "string"
           },
-          "administrador" : {
-            "tipo" : "cadena" ,
-            "enumeración" : [
-              "verdadero" ,
-              "falso"
-            ]
+          "email": {
+            "type": "string",
+            "format": "email"
           },
-          "_id" : {
-            "tipo" : "cadena"
+          "_id": {
+            "type": "string"
           }
         },
-        "required" : [
-          "nombre" ,
-          "correo electrónico" ,
-          "contraseña" ,
-          "administrador" ,
-          "_id"
-        ]
+        "required": ["password", "administrador", "nome", "email", "_id"]
       }
     }
-  },
-  "required" : [
-    "quantidad" ,
-    "usuarios"
-  ]
+  }
 }

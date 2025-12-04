@@ -9,8 +9,10 @@ public class api_Buscar_usuario_por_IDStepDefinition {
 
     @When("^realizo una busqueda por id con el parámetro (.*)$")
     public void realizoUnaBusquedaPorIdConElParametro(String id) {
+        id = id.equalsIgnoreCase("exists") ? "" : id;
         id = id.equalsIgnoreCase("random") ? ApiCommons.GenerarDataMock("_id") : id;
 
+        id = (id.equalsIgnoreCase("exists") || id.equalsIgnoreCase("random")) ? ApiCommons.GenerarDataMock("_id") : id;
         OnStage.theActorInTheSpotlight().attemptsTo(
                 GET_buscarUsuarioPorID.sending(id)
         );

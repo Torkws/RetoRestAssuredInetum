@@ -46,13 +46,23 @@ Las pruebas están desarrolladas utilizando los frameworks **Cucumber** y **Sere
 ---
 
 ### 4️⃣ `api_Actualizar_usuario-PUT-usuarios-id.feature`
-**Descripción:** *(Pendiente de implementación)* Valida el endpoint para actualizar datos de un usuario.
+**Descripción:** Valida el endpoint para actualizar datos de un usuario.  
+**Escenarios:**
+- ✅ Actualización exitosa con parámetros válidos.
+- ✅ Creación de un nuevo usuario desde el servicio de actualización.
+- ❌ Actualización con parámetros inválidos (campos obligatorios faltantes).
+- ⚠️ Actualización con error por email duplicado.
 
 ---
 
 ### 5️⃣ `api_Eliminar_usuario-DELETE-usuarios-id.feature`
-**Descripción:** *(Pendiente de implementación)* Valida el endpoint para eliminar usuarios.
+**Descripción:** Valida el endpoint para eliminar usuarios.  
+**Escenarios:**
+- ✅ Eliminación exitosa con parámetros válidos.
+- ⚠️ Eliminación de un usuario inexistente.
+- ❌ Eliminación de un usuario con carrito asociado.
 
+---
 ---
 
 ## 🛠️ Cómo Ejecutar las Pruebas
