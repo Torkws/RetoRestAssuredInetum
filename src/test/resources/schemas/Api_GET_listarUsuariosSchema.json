@@ -1,0 +1,52 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#" ,
+  "type" : "object" ,
+  "properties" : {
+    "quantidade" : {
+      "type" : "integer"
+    },
+    "usuarios" : {
+      "tipo" : "matriz" ,
+      "elementos" : {
+        "tipo" : "objeto" ,
+        "propiedades" : {
+          "nombre" : {
+            "tipo" : "cadena"
+          },
+          "correo electrónico" : {
+            "tipo" : "cadena"
+          },
+          "contraseña" : {
+            "tipo" : "cadena" ,
+            "enumeración" : [
+              "prueba" ,
+              "123456" ,
+              "caio321"
+            ]
+          },
+          "administrador" : {
+            "tipo" : "cadena" ,
+            "enumeración" : [
+              "verdadero" ,
+              "falso"
+            ]
+          },
+          "_id" : {
+            "tipo" : "cadena"
+          }
+        },
+        "required" : [
+          "nombre" ,
+          "correo electrónico" ,
+          "contraseña" ,
+          "administrador" ,
+          "_id"
+        ]
+      }
+    }
+  },
+  "required" : [
+    "quantidad" ,
+    "usuarios"
+  ]
+}

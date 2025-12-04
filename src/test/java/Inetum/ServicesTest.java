@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = "Inetum.StepDefinitions",
+        glue = "Inetum",
         plugin = {"pretty", "json:target/build/cucumber.json"},
         tags = "@step"
 )
